@@ -118,7 +118,6 @@ public class Lab1 {
       
       // Calculate the error
       distError = WALL_DIST - distance;
-      System.out.println("ERROR: " + distError);
 
       if (Math.abs(distError) <= WALL_DIST_ERR_THRESH ) {      //Compare the error to the threshold
         leftSpeed = MOTOR_HIGH;
@@ -133,19 +132,10 @@ public class Lab1 {
         rightSpeed = MOTOR_HIGH;
       }
     }
-          System.out.println("LEFT SPEED: " + leftSpeed);
-          System.out.println("RIGHT SPEED: " + rightSpeed);
-
+        
     motorSpeeds[LEFT] = leftSpeed;
     motorSpeeds[RIGHT] = rightSpeed;
     
-    //Allow other processors to get CPU (Thread Management)
-    try {
-      Thread.sleep(POLL_SLEEP_TIME);
-    } catch (InterruptedException exception) {
-      exception.printStackTrace();
-    }
-
   }
 
   /** Returns the filtered distance between the US sensor and an obstacle in cm. */
