@@ -124,7 +124,7 @@ public class Lab1 {
         rightSpeed = 0;
       }
       else if (distError > 0) {       // Else if the error is bigger than 0 meaning that we are too close to the wall and should start to turn away from it
-        leftSpeed = MOTOR_LOW;
+        leftSpeed = MOTOR_HIGH;
          rightSpeed = 0;
       }
       else if (distError < 0 ) {      // If the error is smaller than 0 and also smaller than the wall distance error threshold (to which it was compared in the above if statement after being converted to an absolute value)
