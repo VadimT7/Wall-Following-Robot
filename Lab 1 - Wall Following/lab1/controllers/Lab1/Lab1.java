@@ -114,21 +114,21 @@ public class Lab1 {
 
     // TODO Calculate the correct motor speeds and assign them to motorSpeeds like this
 
-    if (distance < MAX_SENSOR_DIST) { // If signal is withing bounds of the measurement limitations of the US sensor
+   if (distance < MAX_SENSOR_DIST) { // If signal is withing bounds of the measurement limitations of the US sensor
       
       // Calculate the error
       distError = WALL_DIST - distance;
 
-      if (Math.abs(distError) <= WALL_DIST_ERR_THRESH ) {      //Compare the error to the threshold
+      if (Math.abs(distError) <= WALL_DIST_ERR_THRESH ) {      //Compare the error to the threshold and if is inside the threshold's limits, then continue navigating forward
         leftSpeed = MOTOR_HIGH;
-        rightSpeed = 0;
+        rightSpeed = MOTOR_HIGH;
       }
-      else if (distError > 0) {       // Else if the error is bigger than 0 meaning that we are too close to the wall and should start to turn away from it
+      else if (distError > 0) {       // Else if the error is bigger than 0 meaning that we are too close to the wall, start to turn away from it
         leftSpeed = MOTOR_HIGH;
          rightSpeed = 0;
       }
-      else if (distError < 0 ) {      // If the error is smaller than 0 and also smaller than the wall distance error threshold (to which it was compared in the above if statement after being converted to an absolute value)
-        leftSpeed = MOTOR_HIGH;
+      else if (distError < 0 ) {      // Adjust the direction of the robot towards the wall if the error is smaller than 0 and also smaller than the wall distance error threshold (to which it was compared in the above if statement)
+        leftSpeed = MOTOR_LOW;
         rightSpeed = MOTOR_HIGH;
       }
     }
