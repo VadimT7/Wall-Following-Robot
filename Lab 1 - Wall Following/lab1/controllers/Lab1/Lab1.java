@@ -128,7 +128,7 @@ public class Lab1 {
          rightSpeed = 0;
       }
       else if (distError < 0 ) {      // Adjust the direction of the robot for it to come closer to the wall if the distance to the wall is not in the ideal preestablished interval (WALL_DIST +/- WALL_DIST_ERR_THRESH)
-        leftSpeed = MOTOR_LOW;
+        leftSpeed = MOTOR_LOW;          //If we want if to find the wall automatically, set the rightSpeed = MOTOR_HIGH and decrease the leftSpeed to MOTOR_LOW in order to approach slowly the wall
         rightSpeed = MOTOR_HIGH;
       }
     }
